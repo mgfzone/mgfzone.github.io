@@ -6,71 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="libs/w3/w3.css">
 	<link rel="stylesheet" href="libs/w3/w3-theme-purple.css">
-	<style>
-	a{
-		cursor: pointer;
-	}
-	* { box-sizing: border-box; }
-.video-background {
-  background: #000;
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  z-index: -99;
-}
-.video-foreground,
-.video-background iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-#vidtop-content {
-	top: 0;
-	color: #fff;
-}
-.vid-info { position: absolute; top: 0; right: 0; width: 33%; background: rgba(0,0,0,0.3); color: #fff; padding: 1rem; font-family: Avenir, Helvetica, sans-serif; }
-.vid-info h1 { font-size: 2rem; font-weight: 700; margin-top: 0; line-height: 1.2; }
-.vid-info a { display: block; color: #fff; text-decoration: none; background: rgba(0,0,0,0.5); transition: .6s background; border-bottom: none; margin: 1rem auto; text-align: center; }
-@media (min-aspect-ratio: 16/9) {
-  .video-foreground { height: 300%; top: -100%; }
-}
-@media (max-aspect-ratio: 16/9) {
-  .video-foreground { width: 300%; left: -100%; }
-}
-@media all and (max-width: 600px) {
-.vid-info { width: 50%; padding: .5rem; }
-.vid-info h1 { margin-bottom: .2rem; }
-}
-@media all and (max-width: 500px) {
-.vid-info .acronym { display: none; }
-}
-	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="w3-theme-l5">
-<div class="w3-top">
-<!--header class="w3-container w3-center w3-theme"->
-	<!--h1 class="w3-text-shadow w3-opacity">Mohan Gadi Friend Zone</h1-->
-<!--div class="w3-container w3-center"-->
-<ul class="w3-navbar w3-large w3-theme-d2 w3-left-align w3-hover-shadow w3-xlarge">
-	<li class="w3-hide-medium w3-hide-large w3-theme-d2 w3-opennav w3-right">
-		<a href="javascript:void(0);" onclick="myFunction()">☰</a>
-	</li>
-	<li><a href="/"><img src="images/logo.png" style="width: 90px;" /></a></li>
-	<li class="w3-hide-small"><a href="#">About</a></li>
-	<li class="w3-hide-small"><a href="#">Products</a></li>
-	<li class="w3-hide-small"><a href="#">Contact</a></li>
-</ul>
-<div id="GSKNavBar" class="w3-hide w3-hide-large w3-hide-medium">
-  <ul class="w3-navbar w3-left-align w3-large w3-theme-d2 w3-hover-shadow w3-xlarge">
-    <li><a href="#">Link 1</a></li>
-    <li><a href="#">Link 2</a></li>
-    <li><a href="#">Link 3</a></li>
-  </ul>
-</div>
-<!--/div-->
-<!--/header-->
+<div id="HeaderContainer" class="w3-top">
 </div>
 <div class="w3-container w3-center" style="margin-top: 60px;">
 <div class="w3-content w3-hover-shadow w3-theme-d3" style="width: 80%; border-width: 10px; border-style: double;">
@@ -212,74 +151,15 @@ hello <br/>
 hello <br/>
 </div>
 
-<footer class="w3-container w3-theme" >
-	<p>Dimili<br/>Elamanchili<br/>Visakhapatnam<br/>Andhra Pradesh, India.</p><p>Connect with us: +971506855467 (Whatsapp)</p>
-	<small><div class="w3-left-align" style="display: inline; float: left;"><span>&copy; Copyright All Rights Reserved.</span></div><div class="w3-right-align" style="display: inline; float: right;"><span>Prepared by <a href="http://skgadi.com/">SKGadi</a>.</span></div></small>
+<footer id="FooterContainer" class="w3-container w3-theme" >
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script SRC="script.js"></script>
 <script>
-var slideIndex = 0;
+SetHeaderNFooter();
 carousel();
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-	var dots = document.getElementsByClassName("demo");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > x.length) {slideIndex = 1}
-
-	for (i = 0; i < dots.length; i++) {
-		dots[i].text = "◇";
-	}
-
-    x[slideIndex-1].style.display = "block";
-	dots[slideIndex-1].text = "◈";
-
-
-    setTimeout(carousel, 5000);
-}
-</script>
-<script>
-function myFunction() {
-    var x = document.getElementById("GSKNavBar");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
-
-<script>
 showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-     dots[i].text = "◇";
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].text = "◈";
-}
 </script>
-
 </body>
 </html>
